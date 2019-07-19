@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 19 21:00:01 2019
+
+@author: 18845075893
+"""
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np 
+labels = ['A1', 'A2', 'A3']
+PA = [2400, 2400, 2400 ]
+TPU=[698.17, 1800, 3700 ]
+PA_TPU = [4000, 5700, 8800]
+
+
+x = np.arange(len(labels))  # the label locations
+width = 0.3  # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x + width/2, PA, width, bottom=TPU,label='PA', color='c' )
+rects2 = ax.bar(x + width/2, TPU, width,  label='TPU',color='b')
+rects2 = ax.bar(x - width/2, PA_TPU, width, label='PA+TPU',color='r')
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('The energy absorption per volume (J/m'+r'$^3$'+')')
+#ax.set_title('Compressive strength ')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+plt.rcParams['savefig.dpi'] = 300 #图片像素
+#plt.rcParams['figure.dpi'] = 30
+plt.rcParams['figure.figsize'] = (6.0,5.0)
+#plt.yticks(fontproperties = 'Times New Roman', size = 20)
+#plt.xticks(fontproperties = 'Times New Roman', size = 20)
+plt.savefig('chengshuai2.png', dpi=1000)
+ax.legend()
+
+
